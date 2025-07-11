@@ -1,5 +1,13 @@
 import UpdateForm from "@/components/updateForm";
 
-export default function UpdatePage({ params }: { params: { objectId: string } }) {
-  return <UpdateForm objectId={params.objectId} />;
+interface UpdatePageProps {
+  params: Promise<{
+    objectId: string;
+  }>;
+}
+
+export default async function UpdatePage({ params }: UpdatePageProps) {
+  const { objectId } = await params;
+
+  return <UpdateForm objectId={objectId} />;
 }

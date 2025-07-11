@@ -27,6 +27,7 @@ function isMatchingRoute(routePattern: string, pathname: string): boolean {
 
 export async function middleware(request: NextRequest) {
   const session = await auth();
+  const user = session?.user as { role?: string };
   const { pathname } = request.nextUrl;
 
   const isAdminRoute = ADMIN_PROTECTED_ROUTES.some(route =>
@@ -43,12 +44,12 @@ export async function middleware(request: NextRequest) {
   }
 
   // Hanya ADMIN boleh akses rute admin
-  if (isAdminRoute && session?.user?.role !== "ADMIN") {
+  if (isAdminRoute && user.role !== "ADMIN") {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
   // Hanya USER atau ADMIN boleh akses rute read more
-  if (isUserRoute && session?.user?.role !== "USER" && session?.user?.role !== "ADMIN") {
+  if (isUserRoute && user.role !== "USER" && user.role !== "ADMIN") {
     return NextResponse.redirect(new URL("/", request.url));
   }
 

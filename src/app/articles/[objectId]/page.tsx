@@ -1,5 +1,30 @@
 import { Article } from "@/types/articles.type";
+// import { Metadata } from "next";
 import Image from "next/image";
+
+// export async function generateStaticParams() {
+//   const response = await fetch(`https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles`);
+//   const data = (await response.json()) as Article[];
+//   return data.map((item) => ({ id: item.objectId.toString().slice(0, 3) }));
+// }
+
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { id: string };
+// }): Promise<Metadata> {
+//   const id = params.id;
+//   const response = await fetch(`https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles/${id}`);
+//   const data = (await response.json()) as Article;
+
+//   return {
+//     title: data.title,
+//     description: data.summary,
+//     openGraph: {
+//       images: [{ url: data.image }],
+//     },
+//   };
+// }
 
 export default async function ArticleDetail({
   params,

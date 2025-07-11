@@ -20,6 +20,7 @@ export default function ArticlesList({ session }: Props) {
   const [page, setPage] = useState(1);
 
   const status = session ? "authenticated" : "unauthenticated";
+  const user = session?.user as { role?: string };
 
   useEffect(() => {
     async function getArticlesData() {
@@ -47,9 +48,9 @@ export default function ArticlesList({ session }: Props) {
       <div className="max-w-7xl mx-auto space-y-8">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold text-[#2E4057]">Articles</h1>
-          {status === "authenticated" && session?.user?.role === "ADMIN" && (
+          {status === "authenticated" && user.role === "ADMIN" && (
             <Link
-              href={`/articles/create`}
+              href={"/articles/create"}
               className="px-5 py-2 rounded-xl bg-green-600 text-white hover:bg-green-700 text-sm shadow-md transition"
             >
               + Add New Article
@@ -84,7 +85,7 @@ export default function ArticlesList({ session }: Props) {
                       {article.summary}
                     </p>
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {status === "authenticated" && session?.user?.role === "ADMIN" && (
+                      {status === "authenticated" && user.role === "ADMIN" && (
                         <>
                           <Link
                             href={`/articles/edit/${article.objectId}`}
@@ -95,7 +96,6 @@ export default function ArticlesList({ session }: Props) {
                           <DeleteButton
                             objectId={article.objectId}
                             setData={setData}
-                            data={data}
                           />
                         </>
                       )}

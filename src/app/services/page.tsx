@@ -140,7 +140,7 @@ export default function Services() {
 
         <div className="bg-white rounded-xl shadow p-6 border border-[#D5E2B6] transition-all duration-300">
           <p className="text-gray-800 italic mb-4">
-            "{testimonials[current].quote}"
+             &quot;{testimonials[current].quote}&quot;
           </p>
           <p className="text-[#56776C] font-semibold">
             — {testimonials[current].name}
