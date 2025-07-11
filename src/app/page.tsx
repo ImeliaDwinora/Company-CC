@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-
   return (
     <div className="flex flex-col justify-center font-sans bg-amber-50 text-gray-800">
       {/* HEADER */}
@@ -22,25 +21,37 @@ export default async function Home() {
             <p className="mt-2 text-lg font-playwrite">
               Listening, Understanding, Empowering.
             </p>
-            <nav className="mt-6">
-              <ul className="flex justify-center gap-8 text-[#5a604d] font-cherry">
-                <li>
-                  <Link href="/about-us" className="hover:text-black bg-yellow-300 p-2 rounded-xl shadow">
+            <nav className="mt-6 px-4">
+              <ul className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 text-[#5a604d] font-cherry">
+                <li className="w-full sm:w-auto">
+                  <Link
+                    href="/about-us"
+                    className="block text-center hover:text-black bg-yellow-300 px-4 py-2 rounded-xl shadow"
+                  >
                     About Us
                   </Link>
                 </li>
-                <li>
-                  <Link href="/services" className="hover:text-black bg-yellow-300 p-2 rounded-xl shadow">
+                <li className="w-full sm:w-auto">
+                  <Link
+                    href="/services"
+                    className="block text-center hover:text-black bg-yellow-300 px-4 py-2 rounded-xl shadow"
+                  >
                     Services
                   </Link>
                 </li>
-                <li>
-                  <Link href="/articles" className="hover:text-black bg-yellow-300 p-2 rounded-xl shadow">
+                <li className="w-full sm:w-auto">
+                  <Link
+                    href="/articles"
+                    className="block text-center hover:text-black bg-yellow-300 px-4 py-2 rounded-xl shadow"
+                  >
                     Articles
                   </Link>
                 </li>
-                <li>
-                  <Link href="/teams" className="hover:text-black bg-yellow-300 p-2 rounded-xl shadow">
+                <li className="w-full sm:w-auto">
+                  <Link
+                    href="/teams"
+                    className="block text-center hover:text-black bg-yellow-300 px-4 py-2 rounded-xl shadow"
+                  >
                     Teams
                   </Link>
                 </li>

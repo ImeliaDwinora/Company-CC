@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { useArticleStore } from "@/stores/contentStores";
 
 export default function Create() {
   const [articleData, setArticleData] = useState({
@@ -13,31 +14,19 @@ export default function Create() {
     createDate: "",
     summary: "",
   });
-    const router = useRouter();
+
+  const router = useRouter();
+  const createArticle = useArticleStore((state) => state.createArticle);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
 
     try {
-      const res = await fetch(
-        "https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(articleData),
-        }
-      );
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || "Failed to add article");
-      }
-
+      await createArticle(articleData); // Pakai zustand function
       toast.success("✅ Article has been added");
       router.push("/");
 
+      // Reset form
       setArticleData({
         image: "",
         articlesContent: "",

@@ -1,4 +1,3 @@
-// app/articles/[objectId]/page.tsx
 import { Article } from "@/types/articles.type";
 import Image from "next/image";
 
