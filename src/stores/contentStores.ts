@@ -23,6 +23,7 @@ type ArticleStore = {
   error: string | null;
   fetchArticles: (pageSize?: number, offset?: number) => Promise<void>;
   createArticle: (article: NewArticle) => Promise<void>;
+  getArticleBySlug: (slug: string) => Promise<Article | null>;
   updateArticle: (id: string, article: Partial<NewArticle>) => Promise<void>;
   deleteArticle: (id: string) => Promise<void>;
 };
@@ -72,6 +73,18 @@ export const useArticleStore = create<ArticleStore>((set) => ({
       set({ loading: false });
     }
   },
+
+  getArticleBySlug: async (slug) => {
+  try {
+    const url = `https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles?where=slug%3D%27${slug}%27`;
+    const res = await fetch(url, { cache: "no-store" });
+    const data: Article[] = await res.json();
+    return data[0] ?? null;
+  } catch (err: any) {
+    set({ error: err.message });
+    return null;
+  }
+},
 
   createArticle: async (article) => {
     try {
