@@ -1,32 +1,32 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { useState } from "react";
 
-
 const services = [
   {
-    name: "Tes Minat & Bakat",
-    description: "Kenali potensi unikmu dan temukan arah karier yang sesuai.",
+    name: "Interest & Talent Test",
+    description:
+      "Recognize your unique potential and find the right career path.",
     longDescription:
-      "Tes ini dirancang untuk membantu kamu memahami kekuatan alami, minat tersembunyi, dan bidang yang bisa kamu eksplorasi untuk masa depan.",
+      "This test is designed to help you understand your natural strengths, hidden interests, and areas you could explore in the future.",
     image:
       "https://plus.unsplash.com/premium_photo-1665990294874-36ff13d2b66d?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0",
   },
   {
-    name: "Sesi Konseling",
+    name: "Counseling Session",
     description:
-      "Ceritakan bebanmu pada psikolog terpercaya. Ruang aman untuk semua.",
+      "Tell your worries to a trusted psychologist. A safe space for everyone.",
     longDescription:
-      "Kami menyediakan sesi konseling yang empatik dan profesional agar kamu dapat mengekspresikan diri, menyembuhkan luka batin, dan menemukan jalan keluar.",
+      "We provide empathetic and professional counseling sessions so you can express yourself, heal your inner wounds, and find a way out.",
     image:
       "https://plus.unsplash.com/premium_photo-1664372145617-e81a4374c3df?q=80&w=697&auto=format&fit=crop&ixlib=rb-4.1.0",
   },
   {
-    name: "Tes IQ Online",
-    description: "Uji kemampuan logikamu dengan tes IQ cepat dan akurat.",
+    name: "Online IQ Test",
+    description: "Test your logic skills with a quick and accurate IQ test.",
     longDescription:
-      "Tes IQ kami berbasis digital dan cepat, memberikan gambaran jelas mengenai kemampuan logika, pemecahan masalah, dan daya nalar kamu.",
+      "Our IQ test is digital and fast, providing a clear picture of your logical, problem-solving, and reasoning abilities.",
     image:
       "https://images.unsplash.com/photo-1516553250341-748edab67bc6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0",
   },
@@ -36,38 +36,36 @@ const testimonials = [
   {
     name: "Ayu P.",
     quote:
-      "Sesi konselingnya bikin lega banget. Aku merasa didengar dan dipahami.",
+      "The counseling session was so relieving. I felt heard and understood.",
   },
   {
     name: "Raka S.",
     quote:
-      "Tes minat bakatnya membantu aku memilih jurusan kuliah yang cocok. Thanks Hello Life!",
+      "The aptitude test helped me choose the right major for my studies. Thanks Hello Life!",
   },
   {
     name: "Sinta L.",
-    quote:
-      "Website-nya simpel tapi informatif. Tes IQ-nya cepat dan hasilnya insightful!",
+    quote: "The IQ test is quick and the results are insightful!",
   },
   {
     name: "Dimas R.",
     quote:
-      "Awalnya ragu ikut konseling online, tapi ternyata sangat profesional dan menenangkan.",
+      "At first I was hesitant to join online counseling, but it turned out to be very professional and reassuring.",
   },
   {
     name: "Lia M.",
     quote:
-      "Saya jadi lebih percaya diri setelah tahu potensi diri lewat tes Hello Life!",
+      "I became more confident after knowing my potential through the Hello Life test!",
   },
   {
     name: "Fajar N.",
     quote:
-      "Pelayanan cepat, hasil tes jelas, dan konselingnya bikin hati lebih tenang. Recommended!",
+      "Fast service, clear test results, and the counseling is reassuring. Recommended!",
   },
 ];
 
-
 export default function Services() {
-   const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(0);
 
   const handlePrev = () => {
     setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
@@ -81,10 +79,10 @@ export default function Services() {
       {/* Judul Layanan */}
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-4xl sm:text-5xl font-bold text-[#B17F59] font-cherry">
-          🌱 Layanan Kami
+          🌱 Our Services
         </h2>
         <p className="text-gray-600 mt-3 text-base sm:text-lg max-w-xl mx-auto">
-          Dukung perjalanan kesehatan mentalmu bersama{" "}
+          Support your mental health journey together{" "}
           <strong>Hello Life</strong>.
         </p>
       </div>
@@ -125,7 +123,7 @@ export default function Services() {
                   rel="noopener noreferrer"
                   className="inline-block bg-[#B17F59] hover:bg-[#a36f48] text-white text-sm font-medium py-2 px-4 rounded-lg transition duration-300"
                 >
-                  📞 Hubungi Kami
+                  📞 Contact Us
                 </a>
               </div>
             </div>
@@ -135,12 +133,12 @@ export default function Services() {
 
       <div className="max-w-2xl mx-auto text-center mt-20">
         <h3 className="text-3xl sm:text-4xl font-bold text-[#B17F59] font-cherry mb-6">
-          💬 Testimoni Pelanggan
+          💬 Customer Testimonials
         </h3>
 
         <div className="bg-white rounded-xl shadow p-6 border border-[#D5E2B6] transition-all duration-300">
           <p className="text-gray-800 italic mb-4">
-             &quot;{testimonials[current].quote}&quot;
+            &quot;{testimonials[current].quote}&quot;
           </p>
           <p className="text-[#56776C] font-semibold">
             — {testimonials[current].name}

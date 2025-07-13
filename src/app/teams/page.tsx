@@ -19,25 +19,25 @@ interface Team {
 }
 
 const roles = [
-  "Psikolog Klinis",
-  "Konselor Remaja",
-  "Terapis Anak & Keluarga",
-  "Psikolog Pendidikan",
-  "Terapis Kognitif Perilaku",
-  "Psikolog Organisasi",
-  "Psikiater Konsultan",
-  "Psikolog Perkembangan",
+"Clinical Psychologist",
+"Adolescent Counselor",
+"Child & Family Therapist",
+"Educational Psychologist",
+"Cognitive Behavioral Therapist",
+"Organizational Psychologist",
+"Consultant Psychiatrist",
+"Developmental Psychologist",
 ];
 
 const bios = [
-  "Mendampingi klien memahami dan menyembuhkan luka batin.",
-  "Berfokus pada kesehatan mental remaja dengan pendekatan empatik.",
-  "Membantu keluarga membangun komunikasi yang sehat dan penuh kasih.",
-  "Membimbing siswa menemukan potensi dan arah belajar terbaik.",
-  "Menggunakan terapi berbasis bukti untuk atasi kecemasan dan depresi.",
-  "Membangun budaya kerja sehat dan produktif dalam organisasi.",
-  "Mengintegrasikan pendekatan medis dan psikologis dalam sesi konsultasi.",
-  "Menemani setiap fase tumbuh kembang individu dengan pendekatan holistik.",
+"Helping clients understand and heal emotional wounds.",
+"Focusing on adolescent mental health with an empathetic approach.",
+"Helping families build healthy and compassionate communication.",
+"Guiding students to discover their potential and best learning direction.",
+"Using evidence-based therapy to address anxiety and depression.",
+"Building a healthy and productive work culture within the organization.",
+"Integrating medical and psychological approaches in consultation sessions.",
+"Accompanying each stage of individual development with a holistic approach.",
 ];
 
 

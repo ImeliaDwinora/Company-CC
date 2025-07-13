@@ -10,24 +10,23 @@ export default function AboutUs() {
             🌿 Company History
           </h2>
           <p className="mb-2">
-            Hello Life didirikan pada tahun 2023 dengan visi untuk menjadikan
-            kesehatan mental sebagai bagian penting dari kehidupan sehari-hari.
-            Berawal dari kekhawatiran bahwa akses terhadap layanan psikologi
-            masih terbatas dan seringkali dianggap tabu, sekelompok profesional
-            dari bidang psikologi, teknologi, dan desain bergabung untuk
-            menciptakan sebuah platform yang ramah, inklusif, dan mudah
-            dijangkau.
+            Hello Life was founded in 2023 with the vision of making mental
+            health an essential part of everyday life. Starting from concerns
+            that access to psychological services was still limited and often
+            considered taboo, a group of professionals from the fields of
+            psychology, technology, and design joined forces to create a
+            friendly, inclusive, and accessible platform.
           </p>
           <ul className="list-disc pl-6 mb-2">
+            <li>Helping more than 2,000 clients from various backgrounds.</li>
             <li>
-              Membantu lebih dari 2.000 klien dari berbagai latar belakang.
+              Launching a safe and convenient online consultation feature.
             </li>
-            <li>Meluncurkan fitur konsultasi online yang aman dan nyaman.</li>
-            <li>Bekerja sama dengan organisasi pendidikan dan perusahaan.</li>
+            <li>Collaborate with educational organizations and companies.</li>
           </ul>
           <p>
-            Kami percaya bahwa mendengarkan adalah awal dari penyembuhan, dan
-            Hello Life hadir untuk mendengarkan dengan empati.
+            We believe that listening is the beginning of healing, and Hello
+            Life is here to listen with empathy.
           </p>
         </section>
 
@@ -37,14 +36,16 @@ export default function AboutUs() {
           </h2>
 
           <div className="mb-6 ">
-            <h3 className="text-xl font-semibold mb-2">⭐ Tim Psikolog</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              ⭐ Team of Psychologists
+            </h3>
             <ul className="space-y-2">
               <li>
                 <strong>Dr. Anindya Putri</strong> – Lead Clinical Psychologist
                 <br />
                 <span className="text-sm text-gray-700">
-                  10+ tahun pengalaman di psikologi klinis dewasa. Ahli dalam
-                  terapi perilaku dan mindfulness.
+                  10+ years of experience in adult clinical psychology.
+                  Expertise in behavioral therapy and mindfulness.
                 </span>
               </li>
               <li>
@@ -52,8 +53,8 @@ export default function AboutUs() {
                 Specialist
                 <br />
                 <span className="text-sm text-gray-700">
-                  Fokus pada perkembangan anak dan remaja, pendidikan emosional,
-                  dan terapi keluarga.
+                  Focus on child and adolescent development, emotional
+                  education, and family therapy.
                 </span>
               </li>
               <li>
@@ -61,8 +62,8 @@ export default function AboutUs() {
                 Therapist
                 <br />
                 <span className="text-sm text-gray-700">
-                  Berpengalaman dalam konseling kelompok dan permasalahan
-                  hubungan interpersonal.
+                  Experienced in group counseling and interpersonal relationship
+                  issues.
                 </span>
               </li>
             </ul>
@@ -70,23 +71,23 @@ export default function AboutUs() {
 
           <div>
             <h3 className="text-xl font-semibold mb-2">
-              💻 Tim Teknologi & Kreatif
+              💻 Technology & Creative Team
             </h3>
             <ul className="space-y-2">
               <li>
                 <strong>Rizky Ramadhan</strong> – Head of Product
                 <br />
                 <span className="text-sm text-gray-700">
-                  Merancang pengalaman pengguna yang intuitif agar layanan
-                  psikologis lebih mudah dijangkau.
+                  Designing an intuitive user experience to make psychological
+                  services more accessible.
                 </span>
               </li>
               <li>
                 <strong>Nadia Amelia</strong> – Content & Community Manager
                 <br />
                 <span className="text-sm text-gray-700">
-                  Menyusun konten edukatif seputar kesehatan mental, serta
-                  membangun komunitas support Hello Life.
+                  Developing educational content about mental health and
+                  building the Hello Life support community.
                 </span>
               </li>
             </ul>
@@ -98,37 +99,32 @@ export default function AboutUs() {
             💬 Culture & Values
           </h2>
           <p className="mb-4">
-            Di Hello Life, budaya kerja kami dibangun atas dasar empati,
-            kolaborasi, dan keseimbangan hidup. Kami percaya bahwa tempat kerja
-            harus mendukung pertumbuhan pribadi dan profesional.
+            At Hello Life, our work culture is built on empathy, collaboration,
+            and work-life balance. We believe that the workplace should support
+            personal and professional growth.
           </p>
           <ul className="list-disc pl-6 space-y-1">
             <li>
-              <strong>Empathy First</strong>: Kami mendengarkan tanpa
-              menghakimi.
+              <strong>Empathy First</strong>: We listen without judgment.
             </li>
             <li>
-              <strong>Integrity & Privacy</strong>: Kami menjaga kerahasiaan dan
-              etika dalam semua layanan.
+              <strong>Integrity & Privacy</strong>:We maintain confidentiality and ethics in all our services.
             </li>
             <li>
-              <strong>Continuous Learning</strong>: Kami mendorong pembelajaran
-              dan pengembangan diri.
+              <strong>Continuous Learning</strong>: We encourage learning and self-development.
             </li>
             <li>
-              <strong>Inclusive Environment</strong>: Kami terbuka terhadap
-              keberagaman dan menghormati setiap individu.
+              <strong>Inclusive Environment</strong>: We are open to diversity and respect every individual.
             </li>
           </ul>
           <p className="mt-4">
-            Kami bekerja dengan fleksibilitas dan tujuan: memberikan dampak
-            positif bagi kehidupan banyak orang.
+           We work with flexibility and purpose: to have a positive impact on the lives of many people.
           </p>
         </section>
 
         <section className="bg-white p-8 rounded-xl shadow-lg">
           <h2 className="text-xl font-semibold text-[#56776C] mb-2">
-            🎯 Ingin kenal kami lebih dekat?
+            🎯 Want to get to know us better?
           </h2>
           <p className="text-sm">
             📩 <strong>Email</strong>:{" "}
