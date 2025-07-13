@@ -67,16 +67,16 @@ export default async function Home() {
           {/* About Hello Life */}
           <article id="sejarah" className="bg-white p-8 rounded-xl shadow-lg">
             <h2 className="text-3xl font-semibold text-[#A5B68D] font-sour mb-4">
-              Inside Hello Life
+              Inside Hello Life 🌟
             </h2>
             <Image
-              src="https://plus.unsplash.com/premium_photo-1664378616928-dc6842677183?w=600"
+              src="/helopsy.jpg"
               alt="Psychologist"
-              width={800}
-              height={500}
-              className="rounded-xl w-full object-cover"
+              width={500}
+              height={100}
+              className="rounded-xl w-full h-[500px] mb-10 object-cover"
             />
-            <div className="mt-6 space-y-4 font-playwrite text-sm">
+            <div className="mt-6 space-y-4 font-playwrite">
               <p>
                 Hello Life is a psychology service platform dedicated to helping
                 individuals find emotional balance, improve mental well-being,
@@ -103,22 +103,56 @@ export default async function Home() {
           {/* Background */}
           <article id="services" className="bg-white p-8 rounded-xl shadow-lg">
             <h2 className="text-3xl font-semibold text-[#A5B68D] font-sour mb-4">
-              Our Background
+              Our Background 💭
             </h2>
-            <p className="font-playwrite text-sm">
-              We believe that everyone deserves a space to understand themselves
-              and grow emotionally. Hello Life was established by a team of
-              professionals from diverse backgrounds—psychology, technology, and
-              design—who share a common mission: to make mental health a
-              priority in modern life.
+            <Image
+              src="/discuss.jpg"
+              alt="Psychologist"
+              width={500}
+              height={100}
+              className="rounded-xl w-full h-[500px] mb-10 object-cover"
+            />
+            <p className="mt-6 space-y-4 font-playwrite">
+              We believe that everyone deserves a safe, supportive space to
+              understand themselves, embrace their emotions, and grow into the
+              best version of who they truly are. At Hello Life, we were born
+              out of a shared conviction: that mental health is not a luxury—it
+              is a necessity.
+              Founded by a passionate team of professionals from diverse yet
+              complementary fields—psychology, technology, education, and
+              design—we bring together clinical insight, user-centered
+              innovation, and visual empathy to create accessible, engaging, and
+              impactful mental health tools for everyone.
+              Each of us came with our own stories: therapists who have seen
+              firsthand the silent struggles of individuals, developers who
+              dream of turning code into connection, and designers who
+              understand that healing also needs to feel human. Together, we
+              realized that while mental health challenges are deeply personal,
+              the support to overcome them shouldn’t be out of reach.
+            </p>
+            <p className="mt-6 space-y-4 font-playwrite">
+              Our mission is to bridge the gap between traditional mental health
+              care and the digital world—making emotional wellness not only more
+              accessible, but also more culturally relevant, safe, and
+              empowering for modern individuals navigating complex lives. With
+              Hello Life, we aim to normalize conversations around mental
+              health, spark self-awareness, and cultivate a mindful, emotionally
+              healthy, and purpose-driven generation.
             </p>
           </article>
 
           {/* Our Team */}
           <article id="blog" className="bg-white p-8 rounded-xl shadow-lg">
             <h2 className="text-3xl font-semibold text-[#A5B68D] font-sour mb-4">
-              Our Team of Professionals
+              Our Team of Professionals 👨‍⚕️👩‍⚕️
             </h2>
+            <Image
+              src="/team.jpg"
+              alt="Psychologist"
+              width={500}
+              height={100}
+              className="rounded-xl w-full h-[500px] object-cover mb-10"
+            />
             <p>
               At Hello Life, we take pride in our licensed and experienced
               psychologists who have supported hundreds of clients from various
@@ -135,8 +169,8 @@ export default async function Home() {
 
           {/* Core Values */}
           <section className="bg-white p-8 rounded-xl shadow-lg">
-            <h2 className="text-3xl font-bold text-center text-[#A5B68D] mb-8 font-sour">
-              Our Values
+            <h2 className="text-3xl font-bold text-[#A5B68D] mb-8 font-sour">
+              Our Values📖
             </h2>
             <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mt-10">
               <li className="flex flex-col items-center text-center">
@@ -191,9 +225,15 @@ export default async function Home() {
               🌍 Our Vision
             </h2>
             <p>
-              To become Indonesia’s leading digital psychology platform that
-              helps people live more mindfully, emotionally healthy, and
-              meaningfully connected with themselves and others.
+              Our vision is to become Indonesia’s leading digital psychology
+              platform by empowering individuals to live more mindfully,
+              maintain emotional well-being, and build deeper, more meaningful
+              connections with themselves and others. We aim to leverage
+              technology, science-backed approaches, and accessible resources to
+              make mental health support a part of everyday life—removing
+              stigma, increasing awareness, and fostering a compassionate
+              digital ecosystem where personal growth and psychological
+              resilience can flourish.
             </p>
           </article>
 
@@ -216,7 +256,7 @@ export default async function Home() {
 
       {/* FOOTER */}
       <footer className="bg-[#B17F59] text-[#D5E2B6] text-center p-4 font-cherry">
-        Hello Life © 2025. Built with ❤️ by Saye.
+        Hello Life © 2025. Built with ❤️ by Hello Life.
       </footer>
     </div>
   );

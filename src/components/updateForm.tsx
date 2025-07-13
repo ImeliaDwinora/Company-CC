@@ -1,9 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useArticleStore } from "@/stores/contentStores"; 
 
 interface ArticleData {
   image: string;
@@ -12,9 +13,10 @@ interface ArticleData {
   author: string;
   createDate: string;
   summary: string;
+  slug: string;
 }
 
-export default function UpdateForm({ objectId }: { objectId: string }) {
+export default function UpdateForm({ slug }: { slug: string }) {
   const { register, handleSubmit, reset } = useForm<ArticleData>({
     defaultValues: {
       image: "",
@@ -23,21 +25,34 @@ export default function UpdateForm({ objectId }: { objectId: string }) {
       author: "",
       createDate: "",
       summary: "",
+      slug: ""
     },
   });
 
   const router = useRouter();
+  const [objectId, setObjectId] = useState<string | null>(null);
+
+  const updateArticle = useArticleStore((state) => state.updateArticle); 
 
   useEffect(() => {
     async function getArticleData() {
       try {
         const response = await fetch(
-          `https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles/${objectId}`
+          `https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles?where=slug%3D%27${slug}%27`
         );
+
         if (!response.ok) throw new Error("Failed to fetch article data");
 
         const data = await response.json();
-        reset(data);
+        console.log("DATA FROM SLUG GET:", data);
+
+        if (data.length === 0) {
+          toast.error("❌ Article not found.");
+          return;
+        }
+
+        reset(data[0]);
+        setObjectId(data[0].objectId);
       } catch (error) {
         toast.error("❌ Failed to load article data.");
         console.error(error);
@@ -45,24 +60,16 @@ export default function UpdateForm({ objectId }: { objectId: string }) {
     }
 
     getArticleData();
-  }, [objectId, reset]);
+  }, [slug, reset]);
 
   const onSubmit = async (formData: ArticleData) => {
     try {
-      const response = await fetch(
-        `https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles/${objectId}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (!response.ok) {
-        toast.error("❌ Failed to update article.");
+      if (!objectId) {
+        toast.error("❌ Cannot update: No article found.");
         return;
       }
 
+      await updateArticle(objectId, formData); // ✅ PAKAI ZUSTAND di sini
       toast.success("✅ Article updated successfully!");
       router.push("/");
     } catch (error) {
@@ -102,6 +109,18 @@ export default function UpdateForm({ objectId }: { objectId: string }) {
             {...register("author")}
             className="w-full px-4 py-2 border rounded-lg"
             placeholder="Article author"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="slug" className="block font-medium text-gray-700 mb-1">
+            Slug
+          </label>
+          <input
+            id="slug"
+            {...register("slug")}
+            className="w-full px-4 py-2 border rounded-lg"
+            placeholder="Article slug"
           />
         </div>
 

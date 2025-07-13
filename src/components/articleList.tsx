@@ -4,44 +4,27 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Session } from "next-auth";
-import { Article } from "@/types/articles.type";
 import DeleteButton from "@/components/deleteButton";
+import { useArticleStore } from "@/stores/contentStores";
 
 type Props = {
   session: Session | null;
 };
 
 const PAGE_SIZE = 6;
-const MAX_PAGE = 3;
 
 export default function ArticlesList({ session }: Props) {
-  const [data, setData] = useState<Article[] | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { articles, loading, error, fetchArticles, dataLength } = useArticleStore();
   const [page, setPage] = useState(1);
-
   const status = session ? "authenticated" : "unauthenticated";
   const user = session?.user as { role?: string };
 
-  useEffect(() => {
-    async function getArticlesData() {
-      setLoading(true);
-      try {
-        const offset = (page - 1) * PAGE_SIZE;
-        const response = await fetch(
-          `https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles?pageSize=${PAGE_SIZE}&offset=${offset}`
-        );
-        const articles = await response.json();
-        setData(articles);
-      } catch (error) {
-        console.error("Failed to fetch:", error);
-        setData(null);
-      } finally {
-        setLoading(false);
-      }
-    }
+  const MAX_PAGE = Math.ceil((dataLength || 0) / PAGE_SIZE) || 1;
 
-    getArticlesData();
-  }, [page]);
+  useEffect(() => {
+    const offset = (page - 1) * PAGE_SIZE;
+    fetchArticles(PAGE_SIZE, offset);
+  }, [page, fetchArticles]);
 
   return (
     <main className="min-h-screen px-6 py-10 bg-amber-50">
@@ -50,7 +33,7 @@ export default function ArticlesList({ session }: Props) {
           <h1 className="text-3xl font-bold text-[#2E4057]">Articles</h1>
           {status === "authenticated" && user.role === "ADMIN" && (
             <Link
-              href={"/articles/create"}
+              href="/articles/create"
               className="px-5 py-2 rounded-xl bg-green-600 text-white hover:bg-green-700 text-sm shadow-md transition"
             >
               + Add New Article
@@ -63,7 +46,7 @@ export default function ArticlesList({ session }: Props) {
         ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {data?.map((article) => (
+              {articles?.map((article) => (
                 <article
                   key={article.objectId}
                   className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
@@ -93,14 +76,11 @@ export default function ArticlesList({ session }: Props) {
                           >
                             Edit
                           </Link>
-                          <DeleteButton
-                            objectId={article.objectId}
-                            setData={setData}
-                          />
+                          <DeleteButton slug={article.slug} />
                         </>
                       )}
                       <Link
-                        href={`/articles/${article.objectId}`}
+                        href={`/articles/${article.slug}`}
                         className="border p-2 rounded-2xl bg-emerald-500 text-white hover:bg-emerald-600"
                       >
                         Read More

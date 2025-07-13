@@ -7,4 +7,5 @@ export interface Article {
   author: string;
   summary: string;
   createDate: string;
+  slug: string;
 }

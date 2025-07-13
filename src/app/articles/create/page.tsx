@@ -13,6 +13,7 @@ export default function Create() {
     author: "",
     createDate: "",
     summary: "",
+    slug:" "
   });
 
   const router = useRouter();
@@ -34,6 +35,7 @@ export default function Create() {
         author: "",
         createDate: "",
         summary: "",
+        slug:""
       });
     } catch (error: any) {
       toast.error(`❌ Error: ${error.message}`);
@@ -76,6 +78,19 @@ export default function Create() {
             placeholder="Enter article author"
             value={articleData.author}
             onChange={(e) => setArticleData({ ...articleData, author: e.target.value })}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+        </div>
+        <div>
+          <label htmlFor="slug" className="block mb-1 font-medium text-gray-700">
+            Slug
+          </label>
+          <input
+            type="text"
+            id="slug"
+            placeholder="Enter article slug"
+            value={articleData.slug}
+            onChange={(e) => setArticleData({ ...articleData, slug: e.target.value })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
         </div>
