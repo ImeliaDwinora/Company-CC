@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { useArticleStore } from "@/stores/contentStores"; 
+import { useArticleStore } from "@/stores/contentStores";
 
 interface ArticleData {
   image: string;
@@ -32,13 +32,20 @@ export default function UpdateForm({ slug }: { slug: string }) {
   const router = useRouter();
   const [objectId, setObjectId] = useState<string | null>(null);
 
-  const updateArticle = useArticleStore((state) => state.updateArticle); 
+  const updateArticle = useArticleStore((state) => state.updateArticle);
+  const unixToDateInputString = (timestamp: number) => {
+    const date = new Date(timestamp);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
   useEffect(() => {
     async function getArticleData() {
       try {
         const response = await fetch(
-          `https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles?where=slug%3D%27${slug}%27`
+         ` https://api.backendless.com/9DD390FF-DA25-4714-89C2-FCFF92F80031/D0026FC3-51B6-44BE-98CE-816C8943FBB2/data/articles?where=slug%3D%27${slug}%27`
         );
 
         if (!response.ok) throw new Error("Failed to fetch article data");
@@ -50,15 +57,19 @@ export default function UpdateForm({ slug }: { slug: string }) {
           toast.error("❌ Article not found.");
           return;
         }
+        const articleData = {
+          ...data[0],
+          createDate: unixToDateInputString(data[0].createDate)
+        };
 
-        reset(data[0]);
+        reset(articleData);
         setObjectId(data[0].objectId);
       } catch (error) {
         toast.error("❌ Failed to load article data.");
         console.error(error);
       }
     }
-
+    console.log(slug);
     getArticleData();
   }, [slug, reset]);
 
@@ -69,7 +80,7 @@ export default function UpdateForm({ slug }: { slug: string }) {
         return;
       }
 
-      await updateArticle(objectId, formData); // ✅ PAKAI ZUSTAND di sini
+      await updateArticle(objectId, formData);
       toast.success("✅ Article updated successfully!");
       router.push("/");
     } catch (error) {

@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { loginuser } from "@/actions/loginUser";
+import Image from "next/image";
 
 const signInSchema = z.object({
   email: z.string().email("Please enter a valid email adress"),
@@ -41,12 +42,12 @@ export default function Login() {
       alert("Invalid credentials");
     }
   };
-  
+
   return (
     <main className="min-h-screen grid place-items-center bg-amber-100">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid gap-4 bg-green-50 py-12 px-10 border border-black rounded-3xl shadow-xl w-[90%] max-w-md"
+        className="grid gap-4 bg-green-50 py-12 px-10 rounded-3xl shadow-xl w-[90%] max-w-md"
       >
         <h1 className="text-2xl font-bold text-center">LOGIN</h1>
 
@@ -92,8 +93,9 @@ export default function Login() {
           <button
             type="button"
             onClick={() => signIn("google", { callbackUrl: "/" })}
-            className="bg-white border border-black rounded-lg px-4 py-2 hover:bg-gray-100 transition"
+            className="bg-white border border-black rounded-lg px-4 py-2 hover:bg-gray-100 transition flex flex-row gap-3"
           >
+            <Image src="/googlee.png" alt="google" width={15} height={8} />
             Login with Google
           </button>
         </div>
