@@ -71,7 +71,7 @@ export default function ArticlesList({ session }: Props) {
                       {status === "authenticated" && user.role === "ADMIN" && (
                         <>
                           <Link
-                            href={`/articles/edit/${article.objectId}`}
+                            href={`/articles/edit/${article.slug}`}
                             className="border p-2 rounded-2xl bg-sky-500 text-white hover:bg-sky-600"
                           >
                             Edit

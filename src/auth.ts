@@ -16,7 +16,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         if (!credentials) return null;
         const response = await fetch(
-         `https://company-cc.vercel.app/api/user?email=${credentials.email}`
+         `http://localhost:3000/api/user?email=${credentials.email}`
         );
         if (!response.ok) return null;
         const userData = await response.json();
