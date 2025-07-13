@@ -119,7 +119,6 @@ export const useArticleStore = create<ArticleStore>((set) => ({
       const updated: Article = await res.json();
       set((state) => ({
         articles: state.articles.map((a) => (a.objectId === id ? updated : a)),
-        // No change to dataLength for updates
       }));
     } catch (err: any) {
       set({ error: err.message });

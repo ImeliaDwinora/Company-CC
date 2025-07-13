@@ -6,7 +6,6 @@ export async function GET(request: NextRequest) {
   const email = request.nextUrl.searchParams.get("email");
 try {
     if (email) {
-      // encode untuk query string agar URL aman
       const query = encodeURIComponent(`email = '${email}'`);
       const url = `${BASE_URL}?where=${query}`;
 
@@ -14,13 +13,12 @@ try {
       const data = await response.json();
 
       if (Array.isArray(data) && data.length > 0) {
-        return NextResponse.json(data[0]); // ambil user pertama yang cocok
+        return NextResponse.json(data[0]); 
       } else {
         return NextResponse.json({ error: "USER NOT FOUND" }, { status: 404 });
       }
     }
 
-    // Jika tanpa parameter email, ambil semua user
     const response = await fetch(BASE_URL);
     const data = await response.json();
     return NextResponse.json(data);
