@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Imelia | Personal Website",
-  description: "Explore Imelia's personal projects, blog articles, and more. Built with modern web technologies like Next.js and Tailwind CSS.",
+  title: "Hello Life | Company Website",
+  description: "Indonesia’s leading digital psychology platform",
   keywords: [
-    "Imelia",
-    "Personal Website",
+    "Hello Life",
+    "Company Website",
     "Web Developer",
     "Frontend Developer",
     "Next.js Portfolio",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "React Developer",
     "Indonesia Web Developer"
   ],
-  authors: [{ name: "Imelia", url: "https://imelia-portofolio.vercel.app" }],
+  authors: [{ name: "Imelia", url: "https://company-cc.vercel.app" }],
   creator: "Imelia",
   publisher: "Imelia",
   robots: {
@@ -43,16 +43,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "r",
-    description: "Welcome to my personal website. Explore my projects, blogs, and more.",
+    title: "Hello Life",
+    description: "Indonesia’s leading digital psychology platform",
     url: "https://company-cc.vercel.app",
-    siteName: "Imelia Website",
+    siteName: "Hello Life Website",
     images: [
       {
         url: "https://company-cc.vercel.app/HelloLife-hero.png", 
         width: 1200,
         height: 630,
-        alt: "Imelia Personal Website",
+        alt: "Hello Life Website",
       },
     ],
     locale: "en_US",
@@ -60,12 +60,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Imelia | Web Developer & Designer",
-    description: "Explore my projects, blog posts, and developer journey.",
-    images: "https://imelia-portofolio.vercel.app/og_image.png",
+    title: "Hello Life",
+    description: "Indonesia’s leading digital psychology platform",
+    images: "https://company-cc.vercel.app/HelloLife-hero.png",
   },
   icons: {
-    icon: "/pinkeu-flower.png",
+    icon: "/icon.png",
   },
 };
 
