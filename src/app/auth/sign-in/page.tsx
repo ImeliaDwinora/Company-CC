@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { loginuser } from "@/actions/loginUser";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 const signInSchema = z.object({
   email: z.string().email("Please enter a valid email adress"),
@@ -39,7 +40,7 @@ export default function Login() {
     if (response.status) {
       router.push("/");
     } else {
-      alert("Invalid credentials");
+      toast.error("Invalid credentials");
     }
   };
 

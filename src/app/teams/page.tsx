@@ -72,7 +72,8 @@ export default async function Teams() {
                     src={member.picture.large}
                     alt={`${member.name.first} ${member.name.last}`}
                     className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  /> 
+                  {/* pakai img karena ada optimize antara randomuser dan vercel jadi gambar tidak mau muncul */}
                 </div>
                 <h3 className="font-semibold text-lg text-[#2E4057] mt-4">
                   {member.name.first} {member.name.last}
