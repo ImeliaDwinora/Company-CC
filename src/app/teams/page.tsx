@@ -19,27 +19,26 @@ interface Team {
 }
 
 const roles = [
-"Clinical Psychologist",
-"Adolescent Counselor",
-"Child & Family Therapist",
-"Educational Psychologist",
-"Cognitive Behavioral Therapist",
-"Organizational Psychologist",
-"Consultant Psychiatrist",
-"Developmental Psychologist",
+  "Clinical Psychologist",
+  "Adolescent Counselor",
+  "Child & Family Therapist",
+  "Educational Psychologist",
+  "Cognitive Behavioral Therapist",
+  "Organizational Psychologist",
+  "Consultant Psychiatrist",
+  "Developmental Psychologist",
 ];
 
 const bios = [
-"Helping clients understand and heal emotional wounds.",
-"Focusing on adolescent mental health with an empathetic approach.",
-"Helping families build healthy and compassionate communication.",
-"Guiding students to discover their potential and best learning direction.",
-"Using evidence-based therapy to address anxiety and depression.",
-"Building a healthy and productive work culture within the organization.",
-"Integrating medical and psychological approaches in consultation sessions.",
-"Accompanying each stage of individual development with a holistic approach.",
+  "Helping clients understand and heal emotional wounds.",
+  "Focusing on adolescent mental health with an empathetic approach.",
+  "Helping families build healthy and compassionate communication.",
+  "Guiding students to discover their potential and best learning direction.",
+  "Using evidence-based therapy to address anxiety and depression.",
+  "Building a healthy and productive work culture within the organization.",
+  "Integrating medical and psychological approaches in consultation sessions.",
+  "Accompanying each stage of individual development with a holistic approach.",
 ];
-
 
 export default async function Teams() {
   const response = await fetch("https://randomuser.me/api/?results=8", {
@@ -69,17 +68,18 @@ export default async function Teams() {
                 className="bg-white border rounded-2xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-xl transition duration-300"
               >
                 <div className="w-24 h-24 relative rounded-full overflow-hidden border-2 border-[#A5B68D]">
-                  <Image
+                  <img
                     src={member.picture.large}
                     alt={`${member.name.first} ${member.name.last}`}
-                    fill
-                    className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <h3 className="font-semibold text-lg text-[#2E4057] mt-4">
                   {member.name.first} {member.name.last}
                 </h3>
-                <p className="text-sm text-[#7D8F69] mt-1 font-medium">{role}</p>
+                <p className="text-sm text-[#7D8F69] mt-1 font-medium">
+                  {role}
+                </p>
                 <p className="text-sm text-gray-500 mt-1">{member.email}</p>
                 <p className="text-xs italic text-gray-500 mt-1">
                   {member.location.city}, {member.location.country}
